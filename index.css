@@ -1,0 +1,227 @@
+.container {
+  display: flex;
+  align-content: flex-start;
+  background-color: rgb(244, 240, 241);
+}
+.bg{
+  background-color: rgb(244, 240, 241);
+}
+.item {
+  flex: 1;
+  text-align: center;
+}
+
+.item1 {
+  padding: 20px; 
+  align-content: flex-start;
+  height: 100%;
+  width: 25%;
+  background-color: rgb(244, 240, 241);
+}
+
+
+.item3 {
+  background-color: rgb(244, 240, 241);
+  margin-left: 20px;
+  flex: 1;
+  align-content: flex-start;
+  align-items: center;
+  height: 100%;
+}
+
+
+.imgclass{
+  border-radius: 50%;
+  height: 100%;
+  margin-top: 5%;
+}
+.postforum {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 12%;
+
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 16px;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Ensures items align to the left by default */
+  padding: 10px;
+}
+
+.interactions {
+  display: flex;
+  align-content: flex-start;
+  margin-left: 4%;
+}
+
+.usericopost {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(254, 254, 254);
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-radius: 24px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+}
+.LandC {
+  display: flex;
+  flex: 1;
+  justify-content: center; /* Centers items horizontally */
+  gap: 120px; /* Sets the gap between items */
+  align-items: center; /* Vertically centers the items */
+  margin-bottom: 2%;
+}
+.userico {
+  display: flex;
+  float: left;
+  flex-direction: row;
+  margin-top: 3%;
+  width: 80%;
+  border-radius: 16px;
+  padding-bottom: 4%;
+  margin-left: 2%;
+}
+
+.userico:hover {
+  display: flex;
+  float: left;
+  flex-direction: row;
+  margin-top: 3%;
+  width: 80%;
+  background-color: rgb(193, 189, 190);
+}
+
+.row-layout {
+  display: flex;
+  float: left;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1%; /* Space between the row and the next content */
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.truename{
+  margin:unset;
+}
+
+.nameico{
+  width: 100%;
+  margin-left: 3%;
+}
+
+
+
+.blog {
+  padding: 3%;
+}
+
+.events {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 16px;
+  margin-top: 6%;
+  width: 70%;
+  background-color: rgb(254, 254, 254);
+}
+.events:hover {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 16px;
+  margin-top: 6%;
+  width: 70%;
+  background-color: rgb(254, 196, 1);
+}
+
+.searchicon {
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  width: 12px;
+  height: 12px;
+}
+
+.cursor{
+  cursor: pointer;
+  
+}
+
+.scope{
+  background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+  background-repeat: no-repeat;
+  background-position: right center;  
+  
+}
+.comment{
+  width: 90%;
+  align-items: center;
+  margin-bottom: 2%;
+  margin-top: 1%;
+  border-radius: 10px;
+  height: 30px;
+}
+.postinput{
+  background-color: rgb(238, 238, 238);
+  border-color: rgb(149, 149, 149);
+  height: 25px;
+  border-radius: 10px;
+  padding-right: 40px;
+  width: 70%;
+  background-color: #fff;
+  
+  
+}
+
+.postinput1{
+  background-color: rgb(238, 238, 238);
+  border-color: rgb(149, 149, 149);
+  height: 25px;
+  border-radius: 10px;
+  padding-right: 40px;
+  background-color: #fff;
+  
+}
+
+    /* Custom styles for the Bootstrap primary button */
+    .btn-primary-custom {
+      margin-left: 3%;
+      background-color: rgb(58, 136, 255); /* Custom background color */
+      border-color: rgb(58, 136, 255); /* Custom border color */
+      color: white; /* Custom text color */
+      padding: 10px 15px; /* Custom padding */
+      font-size: 14px; /* Custom font size */
+      border-radius: 5px; /* Custom border radius */
+      transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    }
+
+    .btn-primary-custom:hover {
+      background-color: rgb(58, 136, 255); /* Custom background color */
+      border-color: rgb(58, 136, 255); /* Custom border color */
+      transform: scale(1.05); /* Slight scale effect on hover */
+    }
+
+    .btn-primary-custom:focus, .btn-primary-custom:active {
+      box-shadow: none; /* Remove default focus shadow */
+    }
