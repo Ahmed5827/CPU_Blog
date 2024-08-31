@@ -3,22 +3,37 @@
   align-content: flex-start;
   background-color: rgb(244, 240, 241);
 }
-.bg{
+.bg {
   background-color: rgb(244, 240, 241);
 }
 .item {
   flex: 1;
   text-align: center;
+  overflow: auto;
+  height: 100vh;
+}
+.item::-webkit-scrollbar {
+  display: none;
 }
 
 .item1 {
-  padding: 20px; 
+  padding: 20px;
   align-content: flex-start;
-  height: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 25%;
   background-color: rgb(244, 240, 241);
+  position: sticky;
 }
-
+.users {
+  overflow: auto;
+  height: 80vh;
+}
+.events-scroll {
+  overflow: auto;
+  height: 85vh;
+}
 
 .item3 {
   background-color: rgb(244, 240, 241);
@@ -27,30 +42,36 @@
   align-content: flex-start;
   align-items: center;
   height: 100%;
+  position: sticky;
 }
 
+.important {
+  background-color: aqua;
+}
 
-.imgclass{
+.imgclass {
   border-radius: 50%;
   height: 100%;
   margin-top: 5%;
 }
 .postforum {
+  margin-top: 10%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding-left: 12%;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 
   border-color: black;
   border-style: solid;
   border-width: 2px;
   border-radius: 16px;
+  height: 100px; /* Optional: set a height to see vertical centering */
 }
+
 .post {
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* Ensures items align to the left by default */
-  padding: 10px;
 }
 
 .interactions {
@@ -58,6 +79,8 @@
   align-content: flex-start;
   margin-left: 4%;
 }
+
+
 
 .usericopost {
   display: flex;
@@ -70,14 +93,17 @@
   border-color: black;
   border-style: solid;
   border-width: 2px;
+  margin-top: 5%;
 }
 .LandC {
   display: flex;
-  flex: 1;
-  justify-content: center; /* Centers items horizontally */
-  gap: 120px; /* Sets the gap between items */
+  justify-content: center; /* Center items horizontally */
+  gap: 100px; /* Adjust the gap as needed */
   align-items: center; /* Vertically centers the items */
-  margin-bottom: 2%;
+  margin: 0; /* Remove any margin that could affect width */
+  padding: 0; /* Remove any padding that could affect width */
+  width: 100%; /* Ensure the container takes up full width */
+  box-sizing: border-box; /* Include padding and border in width */
 }
 .userico {
   display: flex;
@@ -98,6 +124,14 @@
   width: 80%;
   background-color: rgb(193, 189, 190);
 }
+.content{
+  width: 100%;
+}
+
+.comments-container{
+max-height: 300px;
+overflow-y: auto;
+}
 
 .row-layout {
   display: flex;
@@ -109,19 +143,59 @@
   margin-left: 2%;
 }
 
-.truename{
-  margin:unset;
+.row-layoutcomments{
+  display: flex;
+  float: left;
+  flex-direction: row;
+  align-items: center;
 }
 
-.nameico{
+.commentpost {
+  display: flex;
+  flex-direction: column; /* Elements will be arranged vertically */
+  background-color: rgb(237, 235, 235) ;
+  gap: 10px; /* Optional: adds space between the elements */
+  padding: 10px; /* Optional: adds padding inside the container */
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 2%;
+  border-radius: 16px;
+  
+}
+.commentpost span {
+  text-align: left; /* Align the text to the left */
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.truename {
+  margin: unset;
+}
+
+.nameico {
   width: 100%;
   margin-left: 3%;
 }
 
-
-
 .blog {
+  
   padding: 3%;
+  
+}
+
+.events1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 16px;
+  margin-top: 6%;
+  width: 70%;
+  background-color: rgb(254, 196, 1);
 }
 
 .events {
@@ -154,7 +228,6 @@
 }
 
 .searchicon {
-
   background: none;
   border: none;
   cursor: pointer;
@@ -163,18 +236,16 @@
   height: 12px;
 }
 
-.cursor{
+.cursor {
   cursor: pointer;
-  
 }
 
-.scope{
+.scope {
   background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
   background-repeat: no-repeat;
-  background-position: right center;  
-  
+  background-position: right center;
 }
-.comment{
+.comment {
   width: 90%;
   align-items: center;
   margin-bottom: 2%;
@@ -182,7 +253,7 @@
   border-radius: 10px;
   height: 30px;
 }
-.postinput{
+.postinput {
   background-color: rgb(238, 238, 238);
   border-color: rgb(149, 149, 149);
   height: 25px;
@@ -190,38 +261,36 @@
   padding-right: 40px;
   width: 70%;
   background-color: #fff;
-  
-  
 }
 
-.postinput1{
+.postinput1 {
   background-color: rgb(238, 238, 238);
   border-color: rgb(149, 149, 149);
   height: 25px;
   border-radius: 10px;
   padding-right: 40px;
   background-color: #fff;
-  
 }
 
-    /* Custom styles for the Bootstrap primary button */
-    .btn-primary-custom {
-      margin-left: 3%;
-      background-color: rgb(58, 136, 255); /* Custom background color */
-      border-color: rgb(58, 136, 255); /* Custom border color */
-      color: white; /* Custom text color */
-      padding: 10px 15px; /* Custom padding */
-      font-size: 14px; /* Custom font size */
-      border-radius: 5px; /* Custom border radius */
-      transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
-    }
+/* Custom styles for the Bootstrap primary button */
+.btn-primary-custom {
+  margin-left: 3%;
+  background-color: rgb(58, 136, 255); /* Custom background color */
+  border-color: rgb(58, 136, 255); /* Custom border color */
+  color: white; /* Custom text color */
+  padding: 10px 15px; /* Custom padding */
+  font-size: 14px; /* Custom font size */
+  border-radius: 5px; /* Custom border radius */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
 
-    .btn-primary-custom:hover {
-      background-color: rgb(58, 136, 255); /* Custom background color */
-      border-color: rgb(58, 136, 255); /* Custom border color */
-      transform: scale(1.05); /* Slight scale effect on hover */
-    }
+.btn-primary-custom:hover {
+  background-color: rgb(58, 136, 255); /* Custom background color */
+  border-color: rgb(58, 136, 255); /* Custom border color */
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
 
-    .btn-primary-custom:focus, .btn-primary-custom:active {
-      box-shadow: none; /* Remove default focus shadow */
-    }
+.btn-primary-custom:focus,
+.btn-primary-custom:active {
+  box-shadow: none; /* Remove default focus shadow */
+}

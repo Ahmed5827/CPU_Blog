@@ -15,74 +15,77 @@
             placeholder="who are we looking for ?"
           />
         </div>
-
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Kousay attia</h4>
-            <small>Président</small>
+        <div class="users">
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Kousay attia</h4>
+              <small>Président</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Yosr Ghanmi</h4>
-            <small>Vice-Président</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Yosr Ghanmi</h4>
+              <small>Vice-Président</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Ahmed Chebbi</h4>
-            <small>Assistant external affairs</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Ahmed Chebbi</h4>
+              <small>Assistant external affairs</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Dhia ben hammouda</h4>
-            <small>Assistant autonoume</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Dhia ben hammouda</h4>
+              <small>Assistant autonoume</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Mazen torra</h4>
-            <small>chef formation dev</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Mazen torra</h4>
+              <small>chef formation dev</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Aziz Harzallah</h4>
-            <small>chef formation robotic</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Aziz Harzallah</h4>
+              <small>chef formation robotic</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Salma Soued</h4>
-            <small>Secrétaire général</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Salma Soued</h4>
+              <small>Secrétaire général</small>
+            </div>
           </div>
-        </div>
-        <div class="userico">
-          <img src="user.png" width="60px" class="imgclass" />
-          <div class="nameico">
-            <h4>Foulen ben falten</h4>
-            <small>Membre actif</small>
+          <div class="userico">
+            <img src="user.png" width="60px" class="imgclass" />
+            <div class="nameico">
+              <h4>Foulen ben falten</h4>
+              <small>Membre actif</small>
+            </div>
           </div>
         </div>
       </div>
-      <div class="item">
+      <div id="postcontainer" class="item">
         <div class="postforum">
-          <img src="Cpu.png" width="100px" /><input
+          <img src="Cpu.png" width="100px" />
+          <input
+            id="postInput"
             width="100%"
             size="30px"
             type="text"
-            placeholder="what's on your mind CPU member ?"
+            placeholder="what's on your mind CPU member?"
             class="postinput1"
           />
-          <button class="btn-primary-custom">post</button>
+          <button class="btn-primary-custom" onclick="addPost()">Post</button>
         </div>
         <div class="usericopost">
           <div class="row-layout">
@@ -95,7 +98,7 @@
             </div>
           </div>
           <hr width="95%" />
-          <div>
+          <div class="content">
             <p class="blog">
               السلام عليكم
               <br />
@@ -127,18 +130,26 @@
             </p>
 
             <div class="interactions">
-              <small>20 Likes,0 commentss</small>
+              <small>20 Likes, 0 comments</small>
             </div>
             <hr width="97%" />
             <div class="LandC">
-              <div class="cursor">
-                <img src="like.png" width="30px" /><label>Like</label>
+              <div class="cursor" onclick="Liked(this)">
+                <img src="like.png" class="myImage" width="30px" />
+                <label>Like</label>
               </div>
               <div class="cursor">
-                <img src="comment.png" width="30px" /><label>coment</label>
+                <img
+                  src="comment.png"
+                  width="30px"
+                  onclick="focusCommentInput(this)"
+                />
+                <label>Comment</label>
               </div>
             </div>
+
             <hr width="97%" />
+            <div class="comments-container"></div>
             <input type="text" class="comment" placeholder="add a comment!" />
           </div>
         </div>
@@ -162,20 +173,26 @@
               mte3kom il kol nistanaw les questions w il feedback mte3kom
             </p>
             <div class="interactions">
-              <small>20 Likes,0 commentss</small>
+              <small>20 Likes, 0 comments</small>
             </div>
             <hr width="97%" />
             <div class="LandC">
-              <div class="cursor">
-                <img src="like.png" class="like" width="30px" /><label
-                  >Like</label
-                >
+              <div class="cursor" onclick="Liked(this)">
+                <img src="like.png" class="myImage" width="30px" />
+                <label>Like</label>
               </div>
               <div class="cursor">
-                <img src="comment.png" width="30px" /><label>coment</label>
+                <img
+                  src="comment.png"
+                  width="30px"
+                  onclick="focusCommentInput(this)"
+                />
+                <label>Comment</label>
               </div>
             </div>
+
             <hr width="97%" />
+            <div class="comments-container"></div>
             <input type="text" class="comment" placeholder="add a comment!" />
           </div>
         </div>
@@ -202,18 +219,25 @@
               apartir ml marra jeya yezm lkol n3oudou na7dhrou
             </p>
             <div class="interactions">
-              <small>20 Likes,0 commentss</small>
+              <small>20 Likes, 0 comments</small>
             </div>
             <hr width="97%" />
             <div class="LandC">
-              <div class="cursor">
-                <img src="like.png" width="30px" /><label>Like</label>
+              <div class="cursor" onclick="Liked(this)">
+                <img src="like.png" class="myImage" width="30px" />
+                <label>Like</label>
               </div>
               <div class="cursor">
-                <img src="comment.png" width="30px" /><label>coment</label>
+                <img
+                  src="comment.png"
+                  width="30px"
+                  onclick="focusCommentInput(this)"
+                />
+                <label>Comment</label>
               </div>
             </div>
             <hr width="97%" />
+            <div class="comments-container"></div>
             <input type="text" class="comment" placeholder="add a comment!" />
           </div>
         </div>
@@ -234,73 +258,91 @@
               akther nombre mt3 3bed. W nsayef se3a o5ra nb3thlkom lien l meet
             </p>
             <div class="interactions">
-              <small>20 Likes,0 commentss</small>
+              <small>20 Likes, 0 comments</small>
             </div>
             <hr width="97%" />
             <div class="LandC">
-              <div class="cursor">
-                <img src="like.png" width="30px" /><label>Like</label>
+              <div class="cursor" onclick="Liked(this)">
+                <img src="like.png" class="myImage" width="30px" />
+                <label>Like</label>
               </div>
               <div class="cursor">
-                <img src="comment.png" width="30px" /><label>coment</label>
+                <img
+                  src="comment.png"
+                  width="30px"
+                  onclick="focusCommentInput(this)"
+                />
+                <label>Comment</label>
               </div>
             </div>
             <hr width="97%" />
+            <div class="comments-container"></div>
             <input type="text" class="comment" placeholder="add a comment!" />
           </div>
         </div>
       </div>
       <div class="item3">
-        <div class="events">
-          <img src="Cpu.png" width="100px" />
-          <div>
-            <h2>Formation Js</h2>
-            <small>18/08/2024</small>
-          </div>
-        </div>
-        <div class="events">
-          <img src="Cpu.png" width="100px" />
-          <div>
-            <h2>Workshop Js</h2>
-            <small>23/08/2024</small>
-          </div>
-        </div>
-        <div class="events">
-          <img src="Cpu.png" width="100px" />
-          <div>
-            <h2>Réunion Seniors</h2>
-            <small>21/08/2024</small>
-          </div>
-        </div>
-        <div class="events">
-          <img src="Cpu.png" width="100px" />
-          <div>
-            <h2>Journé d'integration</h2>
-            <small>01/08/2024</small>
-          </div>
-        </div>
-        <div class="events">
+        <div class="events1">
           <img src="Cpu.png" width="100px" />
           <div>
             <h2>ISIMM Cyberbot 4.0</h2>
             <small>16/02/2025</small>
           </div>
         </div>
-        <div class="events">
-          <img src="Cpu.png" width="100px" />
-          <div>
-            <h2>Formation Arduino</h2>
-            <small>3/03/2025</small>
+
+        <div class="events-scroll">
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>Formation Js</h2>
+              <small>18/08/2024</small>
+            </div>
           </div>
-        </div>
-        <div class="events">
-          <img src="Cpu.png" width="100px" />
-          <div>
-            <h2>interview du passation des seinors</h2>
-            <small>15/05/2025</small>
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>Workshop Js</h2>
+              <small>23/08/2024</small>
+            </div>
+          </div>
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>Réunion Seniors</h2>
+              <small>21/08/2024</small>
+            </div>
+          </div>
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>Journé d'integration</h2>
+              <small>01/08/2024</small>
+            </div>
+          </div>
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>ISIMM Cyberbot 4.0</h2>
+              <small>16/02/2025</small>
+            </div>
+          </div>
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>Formation Arduino</h2>
+              <small>3/03/2025</small>
+            </div>
+          </div>
+          <div class="events">
+            <img src="Cpu.png" width="100px" />
+            <div>
+              <h2>interview du passation des seinors</h2>
+              <small>15/05/2025</small>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="functions.js"></script>
   </body>
 </html>
