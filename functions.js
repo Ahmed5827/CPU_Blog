@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
           newComment.innerHTML = `
                         <div class="row-layoutcomments">
                             <div>
-                                <img src="user.png" width="50px" class="imgclass" />
+                                <img src="./Photos/user.png" width="50px" class="imgclass" />
                             </div>
                             <div class="name">
                                 <h4 class="truename">${userData.userName}</h4>
@@ -112,11 +112,11 @@ function Liked(container) {
   var likes = parseInt(likesText.textContent.split(" ")[0]);
 
   // Check if the image is already liked or not
-  if (img.src.endsWith("liked.png")) {
-    img.src = "like.png";
+  if (img.src.endsWith("./Photos/liked.png")) {
+    img.src = "./Photos/like.png";
     likes--; // Decrement like count
-  } else if (img.src.endsWith("like.png")) {
-    img.src = "liked.png";
+  } else if (img.src.endsWith("./Photos/like.png")) {
+    img.src = "./Photos/liked.png";
     likes++; // Increment like count
   }
   likesText.textContent = `${likes} Likes, ${
@@ -134,7 +134,7 @@ function addPost() {
     newPost.innerHTML = `
             <div class="row-layout">
                 <div>
-                    <img src="user.png" width="50px" class="imgclass" />
+                    <img src="./Photos/user.png" width="50px" class="imgclass" />
                 </div>
                 <div class="name">
                     <h3 class="truename">${userData.userName}</h3>
@@ -150,11 +150,11 @@ function addPost() {
                 <hr width="97%" />
                 <div class="LandC">
                     <div class="cursor" onclick="Liked(this)">
-                        <img src="like.png" class="myImage" width="30px" />
+                        <img src="./Photos/like.png" class="myImage" width="30px" />
                         <label>Like</label>
                     </div>
                     <div class="cursor" onclick="focusCommentInput(this)">
-                        <img src="comment.png" width="30px" />
+                        <img src="./Photos/comment.png" width="30px" />
                         <label>Comment</label>
                     </div>
                 </div>

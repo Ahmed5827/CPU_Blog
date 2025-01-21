@@ -2,9 +2,11 @@
   display: flex;
   align-content: flex-start;
   background-color: rgb(244, 240, 241);
+  height: 100vh;  
 }
 .bg {
   background-color: rgb(244, 240, 241);
+  height: 100vh;
 }
 .item {
   flex: 1;
