@@ -85,7 +85,7 @@ function navigateToPage(event) {
     );
 
     // Navigate to the desired page
-    window.location.href = "index.html";
+    window.location.href = "/";
   } else {
     alert("Please fill out all fields.");
   }
