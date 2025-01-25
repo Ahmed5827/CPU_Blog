@@ -100,35 +100,68 @@ function focusCommentInput(container) {
   }
 }
 
-function Liked(container) {
-  // Get the image inside the clicked container
-  var img = container.querySelector(".myImage");
+function Liked(likeElement) {
+  // Find the parent element containing the like info
+  const interactions = likeElement.closest(".content").querySelector(".interactions");
+  
+  if (!interactions) return; // Safety check in case no interactions element is found
 
-  // Find the closest parent container that contains the likes counter
-  var postContainer = container.closest(".usericopost");
-  var likesText = postContainer.querySelector(".interactions small");
+  // Extract the current likes count from the text
+  const likesText = interactions.querySelector("small").textContent;
+  const matches = likesText.match(/(\d+)\s+Likes/);
+  if (!matches) return; // If the likes text doesn't match the expected pattern, exit
 
-  // Extract the number of likes from the text
-  var likes = parseInt(likesText.textContent.split(" ")[0]);
+  let currentLikes = parseInt(matches[1], 10); // Get the current likes count as a number
 
-  // Check if the image is already liked or not
-  if (img.src.endsWith("./Photos/liked.png")) {
-    img.src = "./Photos/like.png";
-    likes--; // Decrement like count
-  } else if (img.src.endsWith("./Photos/like.png")) {
-    img.src = "./Photos/liked.png";
-    likes++; // Increment like count
+  // Toggle the like state
+  const likedImg = likeElement.querySelector(".myImage");
+  if (likedImg.classList.contains("liked")) {
+    // If already liked, unlike and decrement likes count
+    likedImg.src = "./Photos/like.png"; // Revert to unliked image
+    likedImg.classList.remove("liked");
+    currentLikes--;
+  } else {
+    // If not liked, like and increment likes count
+    likedImg.src = "./Photos/liked.png"; // Change to liked image
+    likedImg.classList.add("liked");
+    currentLikes++;
   }
-  likesText.textContent = `${likes} Likes, ${
-    likesText.textContent.split(" ")[2]
-  } ${
-    likesText.textContent.split(" ")[3]
-  }`;
+
+  // Update the likes text
+  interactions.querySelector("small").textContent = `${currentLikes} Likes, 0 comments`;
 }
 
-function addPost() {
+
+async function  addPost ()  {
   var postContent = document.getElementById("postInput").value;
   if (postContent.trim() !== "") {
+
+    const endpoint = "http://localhost:3000/posts"; // Replace with your server URL if different
+    postData = {
+        username: userData.userName,
+        role: userData.userRole,
+        content: postContent,
+    };
+    try {
+        const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(postData),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error("Error creating post:", error);
+        throw error;
+    }
+    finally{
     var newPost = document.createElement("div");
     newPost.className = "usericopost";
     newPost.innerHTML = `
@@ -167,7 +200,71 @@ function addPost() {
     var postForum = document.querySelector(".postforum");
     postForum.insertAdjacentElement("afterend", newPost);
     document.getElementById("postInput").value = "";
-  } else {
-    alert("Please enter something to post.");
+  } 
+}
+else {
+  alert("Please enter something to post.");
+}}
+
+window.onload = async function () {
+  await getPosts(); // Call the function to fetch and display posts when the page loads
+};
+
+async function getPosts() {
+  const endpoint = "http://localhost:3000/posts"; // Replace with your server URL if different
+
+  try {
+    const response = await fetch(endpoint);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const posts = await response.json();
+
+    const postForum = document.querySelector(".postforum");
+
+    posts.forEach(post => {
+      const newPost = document.createElement("div");
+      newPost.className = "usericopost";
+      newPost.innerHTML = `
+        <div class="row-layout">
+            <div>
+                <img src="./Photos/user.png" width="50px" class="imgclass" />
+            </div>
+            <div class="name">
+                <h3 class="truename">${post.username || "Unknown User"}</h3>
+                <small>${post.role || "Unknown Role"}</small>
+            </div>
+        </div>
+        <hr width="97%" />
+        <div class="content">
+            <p class="blog">${post.content || "No content available"}</p>
+            <div class="interactions">
+                <small>0 Likes, 0 comments</small>
+            </div>
+            <hr width="97%" />
+            <div class="LandC">
+                <div class="cursor" onclick="Liked(this)">
+                    <img src="./Photos/like.png" class="myImage" width="30px" />
+                    <label>Like</label>
+                </div>
+                <div class="cursor" onclick="focusCommentInput(this)">
+                    <img src="./Photos/comment.png" width="30px" />
+                    <label>Comment</label>
+                </div>
+            </div>
+            <hr width="97%" />
+            <div class="comments-container"></div>
+            <input type="text" class="comment" placeholder="add a comment!" />
+        </div>
+      `;
+
+      // Insert the post into the DOM
+      postForum.insertAdjacentElement("afterend", newPost);
+    });
+  } catch (error) {
+    console.error("Error getting posts:", error);
+    throw error;
   }
 }

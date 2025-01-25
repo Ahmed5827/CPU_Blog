@@ -45,7 +45,7 @@ async function getCollection(collectionName) {
 
 // Serve static files from the public directory
 app.use(express.static(path.join(__dirname, "public")));
-
+app.use(express.json());
 // Routes to serve HTML files
 app.get("/", async (req, res) => {
     /*
@@ -82,7 +82,7 @@ app.get("/posts", async (req, res) => {
 app.post("/posts", async (req, res) => {
     try {
         const collection = await getCollection("Posts"); // Replace with your collection name
-        const data = await collection.insertOne(req.body); 
+        const data = await collection.insertOne({ ...req.body }); 
         console.log (data)
         res.status(200).json(data);
       } catch (error) {
