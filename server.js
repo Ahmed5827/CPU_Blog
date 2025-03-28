@@ -6,7 +6,7 @@ const app = express();
 const port = 3000;
 
 
-const uri = "mongodb+srv://achebbi2002:LZO5jcNgNfstpB6Z@cluster0.h1k2u.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = "*****";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
